@@ -22,9 +22,9 @@ var getColor = function(selectionType, layer) {
   return color
 }
 
-var getColorNum = function(num1, num2, index) {
-  var color_num = ((num2 - num1) / (selectedCount-1)) * index  + num1
-  return color_num
+var getNum = function(num1, num2, index) {
+  var num = ((num2 - num1) / (selectedCount-1)) * index  + num1
+  return num
 }
 
 ////// Normal Text Info
@@ -72,17 +72,17 @@ if (selectedCount == 0) {
     var selectedColor = getColor("fill", layer)
     var r, g, b;
 
-    var r = Math.round(getColorNum(first_layer_color.red(), last_layer_color.red(), i ) * 255)
-    var g = Math.round(getColorNum(first_layer_color.green(), last_layer_color.green(), i ) * 255)
-    var b = Math.round(getColorNum(first_layer_color.blue(), last_layer_color.blue(), i ) * 255)
+    var r = Math.round(getNum(first_layer_color.red(), last_layer_color.red(), i ) * 255)
+    var g = Math.round(getNum(first_layer_color.green(), last_layer_color.green(), i ) * 255)
+    var b = Math.round(getNum(first_layer_color.blue(), last_layer_color.blue(), i ) * 255)
     //var red = Math.round(selectedColor.red() * 255)
     var fill = layer.style().fills().firstObject();
     fill.color = MSColor.colorWithRed_green_blue_alpha( r / 255, g / 255, b / 255, 1.0);
     
     // position 
     var rect = layer.rect()
-    var x = Math.round(getColorNum(first_layer_pos_x, last_layer_pos_x, i ))
-    var y = Math.round(getColorNum(first_layer_pos_y, last_layer_pos_y, i ))
+    var x = Math.round(getNum(first_layer_pos_x, last_layer_pos_x, i ))
+    var y = Math.round(getNum(first_layer_pos_y, last_layer_pos_y, i ))
     layer.rect = NSMakeRect(x, y, rect.size.width, rect.size.height);
     //log(Math.round(getColorNum(first_layer_pos, last_layer_pos, i )))
   }
