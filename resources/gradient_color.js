@@ -5,7 +5,6 @@ log('The current document is named: ' + documentName);
 
 var selectedLayers = context.selection;
 var selectedCount = selectedLayers.count();
-var max_length = 0;
 
 var getColor = function(selectionType, layer) {
   var color
@@ -28,6 +27,25 @@ var getColorNum = function(num1, num2, index) {
   return color_num
 }
 
+// function inputBlock() {
+//   let alert = buildDialog('Create Color Scale', 'How many steps do you want in the scale?')
+
+//   alert.addTextLabelWithValue('Steps')
+//   alert.addTextFieldWithValue('5')
+//   alert.addButtonWithTitle('OK')
+//   alert.addButtonWithTitle('Cancel')
+
+//   return alert;
+// }
+
+
+////// Normal Text Info
+// var app = [NSApplication sharedApplication];
+// [app displayDialog:"This is an alert box!" withTitle:"Alert Box Title"];
+var doc = context.document;
+var result = [doc askForUserInput:"How many copies do you want?" initialValue:"10"];
+
+
 if (selectedCount == 0) {
   log('No layers are selected.');
 } else {
@@ -35,6 +53,17 @@ if (selectedCount == 0) {
 
   var first_layer_color = getColor("fill", selectedLayers[0])
   var last_layer_color = getColor("fill", selectedLayers[selectedCount-1])
+
+  for (var k = 0; k < result ; k++) {
+    var layer = selectedLayers[k].duplicate();
+    layer.select_byExpandingSelection(true, true);
+    //log(k)
+    selectedLayers = context.selection;
+  }
+
+  
+  selectedCount = selectedLayers.count();
+  log(selectedCount)
 
   for (var i = 0; i < selectedCount; i++) {
     var layer = selectedLayers[i];
