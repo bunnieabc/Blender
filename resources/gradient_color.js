@@ -43,8 +43,10 @@ var getColorNum = function(num1, num2, index) {
 // var app = [NSApplication sharedApplication];
 // [app displayDialog:"This is an alert box!" withTitle:"Alert Box Title"];
 var doc = context.document;
-var result = [doc askForUserInput:"How many copies do you want?" initialValue:"10"];
+var result = [doc askForUserInput:"How many copies do you want?" initialValue:"5"];
 
+
+var copied_layers = [];
 
 if (selectedCount == 0) {
   log('No layers are selected.');
@@ -54,22 +56,36 @@ if (selectedCount == 0) {
   var first_layer_color = getColor("fill", selectedLayers[0])
   var last_layer_color = getColor("fill", selectedLayers[selectedCount-1])
 
-  for (var k = 0; k < result ; k++) {
-    var layer = selectedLayers[k].duplicate();
-    layer.select_byExpandingSelection(true, true);
+  copied_layers.push(selectedLayers[0])
+  copied_layers.push(selectedLayers[1])
+
+  var layer_rec = selectedLayers[0]
+  for (var k = 0; k < parseInt(result) ; k++) {
+    //var layer = selectedLayers[0].duplicate();
+    var new_layer = layer_rec.duplicate()
+    new_layer.select_byExpandingSelection(true, true);
+    //copied_layers.push(layer_rec)
+    copied_layers.splice(k+1, 0, new_layer )
+    layer_rec = new_layer
+    //log(copied_layers.count())
     //log(k)
-    selectedLayers = context.selection;
+    //layer.addToSelection()
+    //selectedLayers = context.selection;
+    //log(selectedLayers.count())
   }
+  
+
 
   
-  selectedCount = selectedLayers.count();
-  log(selectedCount)
+  selectedCount = copied_layers.length;
+
+  log("1")
 
   for (var i = 0; i < selectedCount; i++) {
-    var layer = selectedLayers[i];
+    var layer = copied_layers[i];
     var selectedColor = getColor("fill", layer)
     var r, g, b;
-
+    log("2")
     var r = Math.round(getColorNum(first_layer_color.red(), last_layer_color.red(), i ) * 255)
     var g = Math.round(getColorNum(first_layer_color.green(), last_layer_color.green(), i ) * 255)
     var b = Math.round(getColorNum(first_layer_color.blue(), last_layer_color.blue(), i ) * 255)
