@@ -39,10 +39,18 @@ if (selectedCount == 0) {
 
   var first_layer_color = getColor("fill", selectedLayers[0])
   var last_layer_color = getColor("fill", selectedLayers[selectedCount-1])
+  
   var first_layer_pos_x = selectedLayers[0].rect().origin.x
   var last_layer_pos_x = selectedLayers[selectedCount-1].rect().origin.x
+  
   var first_layer_pos_y = selectedLayers[0].rect().origin.y
   var last_layer_pos_y = selectedLayers[selectedCount-1].rect().origin.y
+
+  var first_layer_w = selectedLayers[0].rect().size.width
+  var last_layer_w = selectedLayers[selectedCount-1].rect().size.width
+
+  var first_layer_h = selectedLayers[0].rect().size.height
+  var last_layer_h = selectedLayers[selectedCount-1].rect().size.height
 
   log("test" + first_layer_pos_x + " " + last_layer_pos_x)
   copied_layers.push(selectedLayers[0])
@@ -76,10 +84,14 @@ if (selectedCount == 0) {
     fill.color = MSColor.colorWithRed_green_blue_alpha( r / 255, g / 255, b / 255, 1.0);
 
     // position
-    var rect = layer.rect()
     var x = Math.round(getNum(first_layer_pos_x, last_layer_pos_x, i ))
     var y = Math.round(getNum(first_layer_pos_y, last_layer_pos_y, i ))
-    layer.rect = NSMakeRect(x, y, rect.size.width, rect.size.height);
+
+    // width & height
+    var w = Math.round(getNum(first_layer_w, last_layer_w, i ))
+    var h = Math.round(getNum(first_layer_h, last_layer_h, i ))
+
+    layer.rect = NSMakeRect(x, y, w, h);
     //log(Math.round(getColorNum(first_layer_pos, last_layer_pos, i )))
   }
 };
