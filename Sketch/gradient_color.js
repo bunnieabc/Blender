@@ -52,7 +52,11 @@ if (selectedCount == 0) {
   var first_layer_h = selectedLayers[0].rect().size.height
   var last_layer_h = selectedLayers[selectedCount-1].rect().size.height
 
-  log("test" + first_layer_pos_x + " " + last_layer_pos_x)
+  var first_radius = selectedLayers[0].layers().firstObject().cornerRadiusFloat();
+  var last_radius = selectedLayers[selectedCount-1].layers().firstObject().cornerRadiusFloat();
+  log(first_radius+" "+last_radius)
+
+  //log("test" + first_layer_pos_x + " " + last_layer_pos_x)
   copied_layers.push(selectedLayers[0])
   copied_layers.push(selectedLayers[1])
 
@@ -67,6 +71,7 @@ if (selectedCount == 0) {
   }
 
   selectedCount = copied_layers.length;
+
 
 
   for (var i = 0; i < selectedCount; i++) {
@@ -92,6 +97,7 @@ if (selectedCount == 0) {
     var h = Math.round(getNum(first_layer_h, last_layer_h, i ))
 
     layer.rect = NSMakeRect(x, y, w, h);
+    layer.layers().firstObject().cornerRadiusFloat = Math.round(getNum(first_radius, last_radius, i ))
     //log(Math.round(getColorNum(first_layer_pos, last_layer_pos, i )))
   }
 };
