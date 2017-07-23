@@ -1,7 +1,3 @@
-log('This is an example Sketch script.');
-
-var documentName = context.document.displayName();
-log('The current document is named: ' + documentName);
 
 var selectedLayers = context.selection;
 var selectedCount = selectedLayers.count();
@@ -31,7 +27,7 @@ var getNum = function(num1, num2, index) {
 // var app = [NSApplication sharedApplication];
 // [app displayDialog:"This is an alert box!" withTitle:"Alert Box Title"];
 var doc = context.document;
-var result = [doc askForUserInput:"How many copies do you want?" initialValue:"5"];
+var result = [doc askForUserInput:"How many layers between them?" initialValue:"5"];
 
 
 var copied_layers = [];
@@ -64,11 +60,11 @@ if (selectedCount == 0) {
 
   selectedCount = copied_layers.length;
 
-  
+
   for (var i = 0; i < selectedCount; i++) {
     var layer = copied_layers[i];
-    
-    // color 
+
+    // color
     var selectedColor = getColor("fill", layer)
     var r, g, b;
 
@@ -78,8 +74,8 @@ if (selectedCount == 0) {
     //var red = Math.round(selectedColor.red() * 255)
     var fill = layer.style().fills().firstObject();
     fill.color = MSColor.colorWithRed_green_blue_alpha( r / 255, g / 255, b / 255, 1.0);
-    
-    // position 
+
+    // position
     var rect = layer.rect()
     var x = Math.round(getNum(first_layer_pos_x, last_layer_pos_x, i ))
     var y = Math.round(getNum(first_layer_pos_y, last_layer_pos_y, i ))
