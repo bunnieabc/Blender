@@ -95,9 +95,12 @@ if (selectedCount == 0) {
     var bg = Math.round(getNum(first_border_color.green(), last_border_color.green(), i ) * 255)
     var bb = Math.round(getNum(first_border_color.blue(), last_border_color.blue(), i ) * 255)
     //var red = Math.round(selectedColor.red() * 255)
+    
+    // set fill gradient
     var fill = layer.style().fills().firstObject();
     fill.color = MSColor.colorWithRed_green_blue_alpha( r / 255, g / 255, b / 255, 1.0);
 
+    // set border gradient
     var border = layer.style().borders().firstObject();
     border.color = MSColor.colorWithRed_green_blue_alpha( br / 255, bg / 255, bb / 255, 1.0);
 
@@ -109,8 +112,14 @@ if (selectedCount == 0) {
     var w = Math.round(getNum(first_layer_w, last_layer_w, i ))
     var h = Math.round(getNum(first_layer_h, last_layer_h, i ))
 
+    //opacity 
+    var op = getNum(first_layer_opacity, last_layer_opacity, i )
+
+    // set position and width height
     layer.rect = NSMakeRect(x, y, w, h);
     layer.layers().firstObject().cornerRadiusFloat = Math.round(getNum(first_radius, last_radius, i ))
+    layer.style().contextSettings().setOpacity(op)
+    log("op" + op)
     //log(Math.round(getColorNum(first_layer_pos, last_layer_pos, i )))
   }
 };
