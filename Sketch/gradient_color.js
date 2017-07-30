@@ -39,6 +39,9 @@ if (selectedCount == 0) {
 
   var first_layer_color = getColor("fill", selectedLayers[0])
   var last_layer_color = getColor("fill", selectedLayers[selectedCount-1])
+
+  var first_border_color = getColor("border", selectedLayers[0])
+  var last_border_color = getColor("border", selectedLayers[selectedCount-1])
   
   var first_layer_pos_x = selectedLayers[0].rect().origin.x
   var last_layer_pos_x = selectedLayers[selectedCount-1].rect().origin.x
@@ -54,7 +57,9 @@ if (selectedCount == 0) {
 
   var first_radius = selectedLayers[0].layers().firstObject().cornerRadiusFloat();
   var last_radius = selectedLayers[selectedCount-1].layers().firstObject().cornerRadiusFloat();
-  log(first_radius+" "+last_radius)
+
+  var first_layer_opacity = selectedLayers[0].style().contextSettings().opacity()
+  var last_layer_opacity = selectedLayers[selectedCount-1].style().contextSettings().opacity()
 
   //log("test" + first_layer_pos_x + " " + last_layer_pos_x)
   copied_layers.push(selectedLayers[0])
@@ -79,14 +84,22 @@ if (selectedCount == 0) {
 
     // color
     var selectedColor = getColor("fill", layer)
+    
     var r, g, b;
 
     var r = Math.round(getNum(first_layer_color.red(), last_layer_color.red(), i ) * 255)
     var g = Math.round(getNum(first_layer_color.green(), last_layer_color.green(), i ) * 255)
     var b = Math.round(getNum(first_layer_color.blue(), last_layer_color.blue(), i ) * 255)
+
+    var br = Math.round(getNum(first_border_color.red(), last_border_color.red(), i ) * 255)
+    var bg = Math.round(getNum(first_border_color.green(), last_border_color.green(), i ) * 255)
+    var bb = Math.round(getNum(first_border_color.blue(), last_border_color.blue(), i ) * 255)
     //var red = Math.round(selectedColor.red() * 255)
     var fill = layer.style().fills().firstObject();
     fill.color = MSColor.colorWithRed_green_blue_alpha( r / 255, g / 255, b / 255, 1.0);
+
+    var border = layer.style().borders().firstObject();
+    border.color = MSColor.colorWithRed_green_blue_alpha( br / 255, bg / 255, bb / 255, 1.0);
 
     // position
     var x = Math.round(getNum(first_layer_pos_x, last_layer_pos_x, i ))
