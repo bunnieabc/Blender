@@ -55,8 +55,12 @@ if (selectedCount == 0) {
   var first_layer_h = selectedLayers[0].rect().size.height
   var last_layer_h = selectedLayers[selectedCount-1].rect().size.height
 
-  var first_radius = selectedLayers[0].layers().firstObject().cornerRadiusFloat();
-  var last_radius = selectedLayers[selectedCount-1].layers().firstObject().cornerRadiusFloat();
+  //console.log("shape"+selectedLayers[0].layers().firstObject().shape())
+  var shape = selectedLayers[0].layers().firstObject();
+  if(shape && shape.isKindOfClass(MSRectangleShape)){
+    var first_radius = selectedLayers[0].layers().firstObject().cornerRadiusFloat();
+    var last_radius = selectedLayers[selectedCount-1].layers().firstObject().cornerRadiusFloat();
+  }
 
   var first_layer_opacity = selectedLayers[0].style().contextSettings().opacity()
   var last_layer_opacity = selectedLayers[selectedCount-1].style().contextSettings().opacity()
@@ -117,9 +121,12 @@ if (selectedCount == 0) {
 
     // set position and width height
     layer.rect = NSMakeRect(x, y, w, h);
-    layer.layers().firstObject().cornerRadiusFloat = Math.round(getNum(first_radius, last_radius, i ))
     layer.style().contextSettings().setOpacity(op)
-    log("op" + op)
+
+    if(shape && shape.isKindOfClass(MSRectangleShape)){
+      layer.layers().firstObject().cornerRadiusFloat = Math.round(getNum(first_radius, last_radius, i ))
+    }
+    //log("op" + op)
     //log(Math.round(getColorNum(first_layer_pos, last_layer_pos, i )))
   }
 };
