@@ -33,9 +33,8 @@ var doc = context.document;
 var result = new Array(selectedCount-1)
 var doc = context.document;
 //var result = [doc askForUserInput:"How many copies do you want?" initialValue:"10"];
-for(var i = 0; i< selectedCount-1; i++){
-  result[i] = [doc askForUserInput:"For the "+ (i+1) +" blend" initialValue:"10"];
-}
+
+  result = [doc askForUserInput:"How many steps would you like to put between them " initialValue:"10"];
 
 // // Show the dialog
 // return [alert]
@@ -89,7 +88,7 @@ if (selectedCount == 0) {
     copied_layers[id].push(selectedLayers[id+1])
     var layer_rec = selectedLayers[id]
 
-    for (var k = 0; k < parseInt(result[id]) ; k++) {
+    for (var k = 0; k < parseInt(result) ; k++) {
       //var layer = selectedLayers[0].duplicate();
       var new_layer = layer_rec.duplicate()
       new_layer.select_byExpandingSelection(true, true);
@@ -102,22 +101,22 @@ if (selectedCount == 0) {
   for(var id = 0; id < selectedCount-1; id++){
     // change their styles
     //selectedCount = copied_layers.length;
-    for (var i = 0; i < parseInt(result[id])+2; i++) {
+    for (var i = 0; i < parseInt(result)+2; i++) {
       var layer = copied_layers[id][i];
 
       // color
       var r, g, b;
 
-      var r = Math.round(getNum(selected_layer_color[id].red(), selected_layer_color[id+1].red(), i, parseInt(result[id])+2 ) * 255)
+      var r = Math.round(getNum(selected_layer_color[id].red(), selected_layer_color[id+1].red(), i, parseInt(result)+2 ) * 255)
       //log(selected_layer_color[id].red()*255+", "+selected_layer_color[id+1].red()*255)
-      var g = Math.round(getNum(selected_layer_color[id].green(), selected_layer_color[id+1].green(), i, parseInt(result[id])+2 ) * 255)
-      var b = Math.round(getNum(selected_layer_color[id].blue(), selected_layer_color[id+1].blue(), i, parseInt(result[id])+2 ) * 255)
-      var a = Math.round(getNum(selected_layer_color[id].alpha(), selected_layer_color[id+1].alpha(), i, parseInt(result[id])+2 ) * 255)
+      var g = Math.round(getNum(selected_layer_color[id].green(), selected_layer_color[id+1].green(), i, parseInt(result)+2 ) * 255)
+      var b = Math.round(getNum(selected_layer_color[id].blue(), selected_layer_color[id+1].blue(), i, parseInt(result)+2 ) * 255)
+      var a = Math.round(getNum(selected_layer_color[id].alpha(), selected_layer_color[id+1].alpha(), i, parseInt(result)+2 ) * 255)
       
-      var br = Math.round(getNum(selected_border_color[id].red(), selected_border_color[id+1].red(), i, parseInt(result[id])+2 ) * 255)
-      var bg = Math.round(getNum(selected_border_color[id].green(), selected_border_color[id+1].green(), i, parseInt(result[id])+2 ) * 255)
-      var bb = Math.round(getNum(selected_border_color[id].blue(), selected_border_color[id+1].blue(), i, parseInt(result[id])+2 ) * 255)
-      var ba = Math.round(getNum(selected_border_color[id].alpha(), selected_border_color[id+1].alpha(), i, parseInt(result[id])+2 ) * 255)
+      var br = Math.round(getNum(selected_border_color[id].red(), selected_border_color[id+1].red(), i, parseInt(result)+2 ) * 255)
+      var bg = Math.round(getNum(selected_border_color[id].green(), selected_border_color[id+1].green(), i, parseInt(result)+2 ) * 255)
+      var bb = Math.round(getNum(selected_border_color[id].blue(), selected_border_color[id+1].blue(), i, parseInt(result)+2 ) * 255)
+      var ba = Math.round(getNum(selected_border_color[id].alpha(), selected_border_color[id+1].alpha(), i, parseInt(result)+2 ) * 255)
       //var red = Math.round(selectedColor.red() * 255)
       
       // set fill gradient
@@ -129,26 +128,26 @@ if (selectedCount == 0) {
       border.color = MSColor.colorWithRed_green_blue_alpha( br / 255, bg / 255, bb / 255, ba / 255);
 
       // position
-      var x = Math.round(getNum(selected_layer_pos_x[id], selected_layer_pos_x[id+1], i, parseInt(result[id])+2 ))
-      var y = Math.round(getNum(selected_layer_pos_y[id], selected_layer_pos_y[id+1], i, parseInt(result[id])+2 ))
+      var x = Math.round(getNum(selected_layer_pos_x[id], selected_layer_pos_x[id+1], i, parseInt(result)+2 ))
+      var y = Math.round(getNum(selected_layer_pos_y[id], selected_layer_pos_y[id+1], i, parseInt(result)+2 ))
 
       // width & height
-      var w = Math.round(getNum(selected_layer_w[id], selected_layer_w[id+1], i, parseInt(result[id])+2 ))
-      var h = Math.round(getNum(selected_layer_h[id], selected_layer_h[id+1], i, parseInt(result[id])+2 ))
+      var w = Math.round(getNum(selected_layer_w[id], selected_layer_w[id+1], i, parseInt(result)+2 ))
+      var h = Math.round(getNum(selected_layer_h[id], selected_layer_h[id+1], i, parseInt(result)+2 ))
 
       //opacity 
-      var op = getNum(selected_layer_opacity[id], selected_layer_opacity[id+1], i, parseInt(result[id])+2 )
+      var op = getNum(selected_layer_opacity[id], selected_layer_opacity[id+1], i, parseInt(result)+2 )
 
       // rotation
-      var rot = getNum(selected_layer_rotation[id], selected_layer_rotation[id+1], i, parseInt(result[id])+2 )
+      var rot = getNum(selected_layer_rotation[id], selected_layer_rotation[id+1], i, parseInt(result)+2 )
       layer.setRotation(rot);
-      
+
       // set position and width height
       layer.rect = NSMakeRect(x, y, w, h);
       layer.style().contextSettings().setOpacity(op)
       var shape = selectedLayers[id].layers().firstObject();
       if(shape && shape.isKindOfClass(MSRectangleShape)){
-        layer.layers().firstObject().cornerRadiusFloat = Math.round(getNum(parseInt(selected_radius[id]), parseInt(selected_radius[id+1]), i, parseInt(result[id])+2 ))
+        layer.layers().firstObject().cornerRadiusFloat = Math.round(getNum(parseInt(selected_radius[id]), parseInt(selected_radius[id+1]), i, parseInt(result)+2 ))
         log(selected_radius[id])
       }
       //log("op" + op)
