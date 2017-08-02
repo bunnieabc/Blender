@@ -55,6 +55,7 @@ if (selectedCount == 0) {
   var selected_layer_h = new Array(selectedCount)
   var selected_radius = new Array(selectedCount)
   var selected_layer_opacity = new Array(selectedCount)
+  var selected_layer_rotation = new Array(selectedCount)
   var copied_layers = new Array(selectedCount-1);
   for(var id = 0; id < selectedCount; id++){
     
@@ -67,6 +68,8 @@ if (selectedCount == 0) {
     selected_layer_w[id] = selectedLayers[id].rect().size.width
     selected_layer_h[id] = selectedLayers[id].rect().size.height
     selected_layer_opacity[id] = selectedLayers[id].style().contextSettings().opacity()
+    selected_layer_rotation[id] = selectedLayers[id].rotation()
+    
     //console.log("shape"+selectedLayers[0].layers().firstObject().shape())
     var shape = selectedLayers[id].layers().firstObject();
     if(shape && shape.isKindOfClass(MSRectangleShape)){
@@ -136,6 +139,10 @@ if (selectedCount == 0) {
       //opacity 
       var op = getNum(selected_layer_opacity[id], selected_layer_opacity[id+1], i, parseInt(result[id])+2 )
 
+      // rotation
+      var rot = getNum(selected_layer_rotation[id], selected_layer_rotation[id+1], i, parseInt(result[id])+2 )
+      layer.setRotation(rot);
+      
       // set position and width height
       layer.rect = NSMakeRect(x, y, w, h);
       layer.style().contextSettings().setOpacity(op)
