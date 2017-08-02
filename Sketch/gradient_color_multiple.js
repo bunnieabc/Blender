@@ -146,8 +146,6 @@ if (selectedCount == 0) {
       if(shape && shape.isKindOfClass(MSRectangleShape)){
         layer.layers().firstObject().cornerRadiusFloat = Math.round(getNum(parseInt(selected_radius[id]), parseInt(selected_radius[id+1]), i, parseInt(result)+2 ))
       }
-      //log("op" + op)
-      //log(Math.round(getColorNum(first_layer_pos, last_layer_pos, i )))
     }
   }
 
