@@ -34,14 +34,8 @@ var result = new Array(selectedCount-1)
 var doc = context.document;
 //var result = [doc askForUserInput:"How many copies do you want?" initialValue:"10"];
 for(var i = 0; i< selectedCount-1; i++){
-  result[i] = [doc askForUserInput:"For the"+ (i+1) +"blend" initialValue:"5"];
+  result[i] = [doc askForUserInput:"For the "+ (i+1) +" blend" initialValue:"10"];
 }
-// for(var t = 0; t < selectedCount ; t++){
-//   result[t] = NSTextField.alloc().initWithFrame(NSMakeRect(0, t * 40 + 75, 130, 20));
-//   view.addSubview(result[t]);
-//   result[t].setStringValue('5'); // default value
-//   log("????")
-// }
 
 // // Show the dialog
 // return [alert]
@@ -115,19 +109,21 @@ if (selectedCount == 0) {
       //log(selected_layer_color[id].red()*255+", "+selected_layer_color[id+1].red()*255)
       var g = Math.round(getNum(selected_layer_color[id].green(), selected_layer_color[id+1].green(), i, parseInt(result[id])+2 ) * 255)
       var b = Math.round(getNum(selected_layer_color[id].blue(), selected_layer_color[id+1].blue(), i, parseInt(result[id])+2 ) * 255)
-
+      var a = Math.round(getNum(selected_layer_color[id].alpha(), selected_layer_color[id+1].alpha(), i, parseInt(result[id])+2 ) * 255)
+      
       var br = Math.round(getNum(selected_border_color[id].red(), selected_border_color[id+1].red(), i, parseInt(result[id])+2 ) * 255)
       var bg = Math.round(getNum(selected_border_color[id].green(), selected_border_color[id+1].green(), i, parseInt(result[id])+2 ) * 255)
       var bb = Math.round(getNum(selected_border_color[id].blue(), selected_border_color[id+1].blue(), i, parseInt(result[id])+2 ) * 255)
+      var ba = Math.round(getNum(selected_border_color[id].alpha(), selected_border_color[id+1].alpha(), i, parseInt(result[id])+2 ) * 255)
       //var red = Math.round(selectedColor.red() * 255)
       
       // set fill gradient
       var fill = layer.style().fills().firstObject();
-      fill.color = MSColor.colorWithRed_green_blue_alpha( r / 255, g / 255, b / 255, 1.0);
+      fill.color = MSColor.colorWithRed_green_blue_alpha( r / 255, g / 255, b / 255, a / 255);
 
       // set border gradient
       var border = layer.style().borders().firstObject();
-      border.color = MSColor.colorWithRed_green_blue_alpha( br / 255, bg / 255, bb / 255, 1.0);
+      border.color = MSColor.colorWithRed_green_blue_alpha( br / 255, bg / 255, bb / 255, ba / 255);
 
       // position
       var x = Math.round(getNum(selected_layer_pos_x[id], selected_layer_pos_x[id+1], i, parseInt(result[id])+2 ))
