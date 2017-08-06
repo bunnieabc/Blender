@@ -1,5 +1,5 @@
 {
-  "author" : "Yu Hsuan Lin",
+  "author" : "",
   "commands" : [
     {
       "script" : "script.cocoascript",
@@ -16,9 +16,9 @@
       "com.bohemiancoding.sketch.runscriptidentifier"
     ]
   },
-  "identifier" : "com.example.sketch.shape-blender",
+  "identifier" : "com.example.sketch.702ce755-972d-43a0-8ede-a5fbb199e7fc",
   "version" : "1.0",
-  "description" : "A Sketch Plugin which can blend colors, corner, opacity, position, size, border and so on. Moreover, it can also apply on multiple shapes",
-  "authorEmail" : "bunnieabc@gmail.com",
+  "description" : "",
+  "authorEmail" : "",
   "name" : "Blender"
 }

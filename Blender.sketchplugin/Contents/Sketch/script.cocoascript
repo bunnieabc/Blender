@@ -2,6 +2,7 @@
           
 var selectedLayers = context.selection;
 var selectedCount = selectedLayers.count();
+var textLayers = [];
 
 var getColor = function(selectionType, layer) {
   var color
@@ -13,7 +14,12 @@ var getColor = function(selectionType, layer) {
       color = layer.style().fills().firstObject().color()
     }
   } else {
-    color = layer.style().borders().firstObject().color()
+    if (layer instanceof MSTextLayer) {
+      color = layer.style().borders().firstObject().color()
+    } else {
+      color = layer.style().borders().firstObject().color()
+    }
+    
   }
 
   return color
@@ -44,111 +50,165 @@ var doc = context.document;
 
 if (selectedCount == 0) {
   log('No layers are selected.');
-} else {
+}
+else {
 
-  var selected_layer_color = new Array(selectedCount)
-  var selected_border_color = new Array(selectedCount)
-  var selected_layer_pos_x = new Array(selectedCount)
-  var selected_layer_pos_y = new Array(selectedCount)
-  var selected_layer_w = new Array(selectedCount)
-  var selected_layer_h = new Array(selectedCount)
-  var selected_radius = new Array(selectedCount)
-  var selected_layer_opacity = new Array(selectedCount)
-  var selected_layer_rotation = new Array(selectedCount)
-  var copied_layers = new Array(selectedCount-1);
-  for(var id = 0; id < selectedCount; id++){
-    
+  // if (selectedLayers[0].className() == "MSTextLayer"){
+  //   var selected_layer_color = new Array(selectedCount)
+  //   var selected_border_color = new Array(selectedCount)
+  //   var selected_layer_pos_x = new Array(selectedCount)
+  //   var selected_layer_pos_y = new Array(selectedCount)
+  //   var selected_layer_w = new Array(selectedCount)
+  //   var selected_layer_h = new Array(selectedCount)
+  //   var selected_layer_font_size = new Array(selectedCount) //
+  //   var selected_layer_opacity = new Array(selectedCount)
+  //   var selected_layer_rotation = new Array(selectedCount)
+  //   var copied_layers = new Array(selectedCount-1);
+  // }
+  //else {
+    var selected_layer_color = new Array(selectedCount)
+    var selected_border_color = new Array(selectedCount)
+    var selected_layer_pos_x = new Array(selectedCount)
+    var selected_layer_pos_y = new Array(selectedCount)
+    var selected_layer_w = new Array(selectedCount)
+    var selected_layer_h = new Array(selectedCount)
+    var selected_radius = new Array(selectedCount)
+    var selected_layer_opacity = new Array(selectedCount)
+    var selected_layer_rotation = new Array(selectedCount)
 
-    // init array
-    selected_layer_color[id] = getColor("fill", selectedLayers[id])
-    selected_border_color[id] = getColor("border", selectedLayers[id])
-    selected_layer_pos_x[id] = selectedLayers[id].rect().origin.x
-    selected_layer_pos_y[id] = selectedLayers[id].rect().origin.y
-    selected_layer_w[id] = selectedLayers[id].rect().size.width
-    selected_layer_h[id] = selectedLayers[id].rect().size.height
-    selected_layer_opacity[id] = selectedLayers[id].style().contextSettings().opacity()
-    selected_layer_rotation[id] = selectedLayers[id].rotation()
-    
-    //console.log("shape"+selectedLayers[0].layers().firstObject().shape())
-    var shape = selectedLayers[id].layers().firstObject();
-    if(shape && shape.isKindOfClass(MSRectangleShape)){
-      selected_radius[id] = selectedLayers[id].layers().firstObject().cornerRadiusFloat();
+    // for font
+    var selected_font_size = new Array(selectedCount) //
+    var selected_character_spacing = new Array(selectedCount) //
+    var selected_lineheight = new Array(selectedCount)
+    var selected_para_height = new Array(selectedCount) 
+ 
+
+    var copied_layers = new Array(selectedCount-1);
+
+    for(var id = 0; id < selectedCount; id++){
+
+      // init array
+      selected_layer_color[id] = getColor("fill", selectedLayers[id])
+      
+      selected_layer_pos_x[id] = selectedLayers[id].rect().origin.x
+      selected_layer_pos_y[id] = selectedLayers[id].rect().origin.y
+      selected_layer_w[id] = selectedLayers[id].rect().size.width
+      selected_layer_h[id] = selectedLayers[id].rect().size.height
+      selected_layer_opacity[id] = selectedLayers[id].style().contextSettings().opacity()
+      selected_layer_rotation[id] = selectedLayers[id].rotation()
+
+      // for font 
+      if (selectedLayers[id].className() == "MSTextLayer") {
+        selected_font_size[id] = selectedLayers[id].fontSize();
+        selected_character_spacing[id] = selectedLayers[id].characterSpacing();
+        selected_lineheight[id] = selectedLayers[id].lineHeight();
+        //selected_para_height[id] = selectedLayers[id].paragraphSpacing();
+      }
+      else {
+        //for rect radius
+        // for borders
+        selected_border_color[id] = getColor("border", selectedLayers[id])
+
+        var shape = selectedLayers[id].layers().firstObject();
+        if(shape && shape.isKindOfClass(MSRectangleShape)){
+          selected_radius[id] = selectedLayers[id].layers().firstObject().cornerRadiusFloat();
+        }
+      }
+      
+
+      
+      
+         
+      //var last_layer_opacity = selectedLayers[selectedCount-1].style().contextSettings().opacity()
     }
 
-       
-    //var last_layer_opacity = selectedLayers[selectedCount-1].style().contextSettings().opacity()
-  }
-
-  // duplicate layers
-  for(var id = 0; id < selectedCount-1; id++){
-    
-    copied_layers[id] = []
-    copied_layers[id].push(selectedLayers[id])
-    copied_layers[id].push(selectedLayers[id+1])
-    var layer_rec = selectedLayers[id]
-
-    for (var k = 0; k < parseInt(result) ; k++) {
-      //var layer = selectedLayers[0].duplicate();
-      var new_layer = layer_rec.duplicate()
-      new_layer.select_byExpandingSelection(true, true);
-      new_layer.setName(k.toString())
-      copied_layers[id].splice(k+1, 0, new_layer )
-      layer_rec = new_layer
-    }
-  }
-
-  for(var id = 0; id < selectedCount-1; id++){
-    // change their styles
-    //selectedCount = copied_layers.length;
-    for (var i = 0; i < parseInt(result)+2; i++) {
-      var layer = copied_layers[id][i];
-
-      // color
-      var r, g, b;
-
-      var r = Math.round(getNum(selected_layer_color[id].red(), selected_layer_color[id+1].red(), i, parseInt(result)+2 ) * 255)
-      var g = Math.round(getNum(selected_layer_color[id].green(), selected_layer_color[id+1].green(), i, parseInt(result)+2 ) * 255)
-      var b = Math.round(getNum(selected_layer_color[id].blue(), selected_layer_color[id+1].blue(), i, parseInt(result)+2 ) * 255)
-      var a = Math.round(getNum(selected_layer_color[id].alpha(), selected_layer_color[id+1].alpha(), i, parseInt(result)+2 ) * 255)
+    // duplicate layers
+    for(var id = 0; id < selectedCount-1; id++){
       
-      var br = Math.round(getNum(selected_border_color[id].red(), selected_border_color[id+1].red(), i, parseInt(result)+2 ) * 255)
-      var bg = Math.round(getNum(selected_border_color[id].green(), selected_border_color[id+1].green(), i, parseInt(result)+2 ) * 255)
-      var bb = Math.round(getNum(selected_border_color[id].blue(), selected_border_color[id+1].blue(), i, parseInt(result)+2 ) * 255)
-      var ba = Math.round(getNum(selected_border_color[id].alpha(), selected_border_color[id+1].alpha(), i, parseInt(result)+2 ) * 255)
-      //var red = Math.round(selectedColor.red() * 255)
-      
-      // set fill gradient
-      var fill = layer.style().fills().firstObject();
-      fill.color = MSColor.colorWithRed_green_blue_alpha( r / 255, g / 255, b / 255, a / 255);
+      copied_layers[id] = []
+      copied_layers[id].push(selectedLayers[id])
+      copied_layers[id].push(selectedLayers[id+1])
+      var layer_rec = selectedLayers[id]
 
-      // set border gradient
-      var border = layer.style().borders().firstObject();
-      border.color = MSColor.colorWithRed_green_blue_alpha( br / 255, bg / 255, bb / 255, ba / 255);
-
-      // position
-      var x = Math.round(getNum(selected_layer_pos_x[id], selected_layer_pos_x[id+1], i, parseInt(result)+2 ))
-      var y = Math.round(getNum(selected_layer_pos_y[id], selected_layer_pos_y[id+1], i, parseInt(result)+2 ))
-
-      // width & height
-      var w = Math.round(getNum(selected_layer_w[id], selected_layer_w[id+1], i, parseInt(result)+2 ))
-      var h = Math.round(getNum(selected_layer_h[id], selected_layer_h[id+1], i, parseInt(result)+2 ))
-
-      //opacity 
-      var op = getNum(selected_layer_opacity[id], selected_layer_opacity[id+1], i, parseInt(result)+2 )
-
-      // rotation
-      var rot = getNum(selected_layer_rotation[id], selected_layer_rotation[id+1], i, parseInt(result)+2 )
-      layer.setRotation(rot);
-
-      // set position and width height
-      layer.rect = NSMakeRect(x, y, w, h);
-      layer.style().contextSettings().setOpacity(op)
-      var shape = selectedLayers[id].layers().firstObject();
-      if(shape && shape.isKindOfClass(MSRectangleShape)){
-        layer.layers().firstObject().cornerRadiusFloat = Math.round(getNum(parseInt(selected_radius[id]), parseInt(selected_radius[id+1]), i, parseInt(result)+2 ))
+      for (var k = 0; k < parseInt(result) ; k++) {
+        //var layer = selectedLayers[0].duplicate();
+        var new_layer = layer_rec.duplicate()
+        new_layer.select_byExpandingSelection(true, true);
+        new_layer.setName(k.toString())
+        copied_layers[id].splice(k+1, 0, new_layer )
+        layer_rec = new_layer
       }
     }
-  }
+
+    for(var id = 0; id < selectedCount-1; id++){
+      // change their styles
+      //selectedCount = copied_layers.length;
+      for (var i = 0; i < parseInt(result)+2; i++) {
+        var layer = copied_layers[id][i];
+
+        // color
+        var r, g, b;
+
+        var r = Math.round(getNum(selected_layer_color[id].red(), selected_layer_color[id+1].red(), i, parseInt(result)+2 ) * 255)
+        var g = Math.round(getNum(selected_layer_color[id].green(), selected_layer_color[id+1].green(), i, parseInt(result)+2 ) * 255)
+        var b = Math.round(getNum(selected_layer_color[id].blue(), selected_layer_color[id+1].blue(), i, parseInt(result)+2 ) * 255)
+        var a = Math.round(getNum(selected_layer_color[id].alpha(), selected_layer_color[id+1].alpha(), i, parseInt(result)+2 ) * 255)
+        
+       
+        // position
+        var x = Math.round(getNum(selected_layer_pos_x[id], selected_layer_pos_x[id+1], i, parseInt(result)+2 ))
+        var y = Math.round(getNum(selected_layer_pos_y[id], selected_layer_pos_y[id+1], i, parseInt(result)+2 ))
+
+        // width & height
+        var w = Math.round(getNum(selected_layer_w[id], selected_layer_w[id+1], i, parseInt(result)+2 ))
+        var h = Math.round(getNum(selected_layer_h[id], selected_layer_h[id+1], i, parseInt(result)+2 ))
+
+        //opacity 
+        var op = getNum(selected_layer_opacity[id], selected_layer_opacity[id+1], i, parseInt(result)+2 )
+
+        // rotation
+        var rot = getNum(selected_layer_rotation[id], selected_layer_rotation[id+1], i, parseInt(result)+2 )
+        layer.setRotation(rot);
+
+        // set position and width height
+        layer.rect = NSMakeRect(x, y, w, h);
+        layer.style().contextSettings().setOpacity(op)
+        
+
+        if(selectedLayers[id].className() == "MSTextLayer"){
+          var fs = getNum(selected_font_size[id], selected_font_size[id+1], i, parseInt(result)+2 )
+          var cs = getNum(selected_character_spacing[id], selected_character_spacing[id+1], i, parseInt(result)+2 )
+          var lh = getNum(selected_lineheight[id], selected_lineheight[id+1], i, parseInt(result)+2 )
+          //var ps = getNum(selected_para_height[id], selected_para_height[id+1], i, parseInt(result)+2 )
+
+          layer.setFontSize(fs)
+          layer.setCharacterSpacing(cs)
+          layer.setLineHeight(lh)
+          layer.textColor = MSColor.colorWithRed_green_blue_alpha( r / 255, g / 255, b / 255, a / 255);
+          //layer.setParagraphSpacing(ps)
+        }
+        else {
+          var fill = layer.style().fills().firstObject();
+          var br = Math.round(getNum(selected_border_color[id].red(), selected_border_color[id+1].red(), i, parseInt(result)+2 ) * 255)
+          var bg = Math.round(getNum(selected_border_color[id].green(), selected_border_color[id+1].green(), i, parseInt(result)+2 ) * 255)
+          var bb = Math.round(getNum(selected_border_color[id].blue(), selected_border_color[id+1].blue(), i, parseInt(result)+2 ) * 255)
+          var ba = Math.round(getNum(selected_border_color[id].alpha(), selected_border_color[id+1].alpha(), i, parseInt(result)+2 ) * 255)
+        
+          var border = layer.style().borders().firstObject();
+          log(border)
+          border.color = MSColor.colorWithRed_green_blue_alpha( br / 255, bg / 255, bb / 255, ba / 255);
+
+          var shape = selectedLayers[id].layers().firstObject();
+          fill.color = MSColor.colorWithRed_green_blue_alpha( r / 255, g / 255, b / 255, a / 255);
+          if(shape && shape.isKindOfClass(MSRectangleShape)){
+            layer.layers().firstObject().cornerRadiusFloat = Math.round(getNum(parseInt(selected_radius[id]), parseInt(selected_radius[id+1]), i, parseInt(result)+2 ))
+          }
+        }
+
+      }
+    }
+  //}
+  
 
 };
 
