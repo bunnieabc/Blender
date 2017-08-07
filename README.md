@@ -23,7 +23,7 @@ Same as Rectangles, but can not blend their Radius.
 You should copied the original shape. Change the copied shape's Fill, Border, Opacity, Rotate, Size or Position. Then apply the blend tool on them.
 <br>
 ### Texts (irregular shape):  
-If you want to create a uideline for Headers, it could be useful. You can blend their font size, position, character spacing, line height and so on.
+If you want to create a uideline for Headers, it could be useful. You can blend their Font size, Position, Character Spacing, Line Height and Text Color.
 
 <br><br>
 ## Usage  
