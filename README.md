@@ -66,6 +66,6 @@ If you want to create a guideline for Headers, it could be useful. You can blend
 <img src="https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex5.gif" alt="">
 <br>
 
-###Other Example
-<img src="https://github.com/bunnieabc/Blender/blob/master/doc/other.png" alt="">
+<h3>Other Examples</h3>
+<img src="https://github.com/bunnieabc/Blender/blob/master/doc/other.png" alt="" width="750">
 <br>
