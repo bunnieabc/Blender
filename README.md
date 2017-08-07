@@ -1,7 +1,7 @@
 # BLENDER
 
 <p align="center">
-  <img src = "https://github.com/bunnieabc/Blender/blob/master/doc/logo.png?raw=true" width="150" height="186"/>
+  <img src = "https://github.com/bunnieabc/Blender/blob/master/doc/logo.png?raw=true"/>
 </p>
 
 ## Introduction  
