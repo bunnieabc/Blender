@@ -4,7 +4,7 @@
 
 You can blend objects to create and distribute shapes evenly between multiple shapes in Sketch through this plugin.
 
-!! Notice: you should use ** SAME SHAPES ** to do the blend trick.  
+!! Notice: you should use **SAME SHAPES** to do the blend trick.  
 (This is only version 1.0, so....LOL)
 
 For Rectengles:  
@@ -22,4 +22,4 @@ You can copied the original shape. Change the copied shape's Fill, Border, Opaci
 ![Alt Text](https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex1.gif)
   
 2. Irregular shapes' example:  
-![Alt Text](https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex2.gif)
+![Alt Text](https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex3.gif)
