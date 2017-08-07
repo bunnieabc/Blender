@@ -30,7 +30,8 @@ You can try to blend their Radius, Fill, Border, Opacity, Rotate, Size, Position
 Same as Rectangles, but can not blend their Radius.
 <br>
 ### Vectors (irregular shape):  
-You should copied the original shape. Change the copied shape's Fill, Border, Opacity, Rotate, Size or Position. Then apply the blend tool on them.
+You should copy the original shape. Change the copied shape's Fill, Border, Opacity, Rotate, Size or Position. Then apply the blend tool on them.<br>
+Notice: In this version, you cannot change the copied shape's anchor points. ;)
 <br>
 ### Texts
 If you want to create a guideline for Headers, it could be useful. You can blend their Font size, Position, Character Spacing, Line Height and Text Color.
