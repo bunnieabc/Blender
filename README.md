@@ -5,7 +5,7 @@
  
 <p align="center">
   <br>
-  <strong><a href="https://github.com/bunnieabc/Blender/raw/master/download/Blender.zip">Download Blender</a></strong> <br>
+  <strong><a href="https://github.com/bunnieabc/Blender/raw/master/download/Blender.zip">Download Blender</a></strong> <br><br>
   A Blend tool for Sketch App. <br>
   <img src = "https://github.com/bunnieabc/Blender/blob/master/doc/logo.png"/>
   <br>
