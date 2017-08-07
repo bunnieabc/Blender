@@ -37,3 +37,11 @@ You can copied the original shape. Change the copied shape's Fill, Border, Opaci
 2. Multiple color Blocks <br>
 <img src="https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex2-1.gif" alt="">
 <br>
+
+3. Irregular Lines <br>
+<img src="https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex3.gif" alt="">
+<br>
+
+4. Create a colorful alphabet! <br>
+<img src="https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex2.gif" alt="">
+<br>
