@@ -1,16 +1,18 @@
 # BLENDER
  
-A Blend tool for Sketch App.
+
 
  
 <p align="center">
+  <a href="https://github.com/bunnieabc/Blender/raw/master/download/Blender.zip">**Download Blender**</a> <br>
+  A Blend tool for Sketch App. <br>
   <img src = "https://github.com/bunnieabc/Blender/blob/master/doc/logo.png"/>
   <br>
   <img src = "https://github.com/bunnieabc/Blender/blob/master/doc/blender-logo.gif"/>
 </p>
 
 ## Installation
-1. Download through this link: <a href="https://github.com/bunnieabc/Blender/raw/master/download/Blender.zip">**Download Blender!**</a> <br>
+1. Download through this link: <a href="https://github.com/bunnieabc/Blender/raw/master/download/Blender.zip">**Blender Version 1.0**</a> <br>
 2. Double click to install it.<br>
 3. Then you can find it in "Plugins" in Sketch.<br>
 <br><br>
