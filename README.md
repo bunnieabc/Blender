@@ -23,7 +23,7 @@ Through this Plugin, you can blend objects to create and distribute shapes evenl
 
 *Notice: you should use SAME SHAPES to do the blend trick.*
 <br><br>
-### Rectengles 
+### Rectangles 
 You can try to blend their Radius, Fill, Border, Opacity, Rotate, Size, Position
 <br>
 ### Other shapes  
