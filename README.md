@@ -7,7 +7,7 @@
 ## Introduction  
 You can blend objects to create and distribute shapes evenly between multiple shapes in Sketch through this plugin.
 
-**Notice: you should use SAME SHAPES** to do the blend trick.**
+**Notice: you should use SAME SHAPES to do the blend trick.**
 
 ### For Rectengles:  
 You can try to blend Rectangle' Radius, Fill, Border, Opacity, Rotate, Size, Position
