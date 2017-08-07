@@ -70,3 +70,8 @@ If you want to create a guideline for Headers, it could be useful. You can blend
 <h3>Other Examples</h3>
 <img src="https://github.com/bunnieabc/Blender/blob/master/doc/other.png" alt="" width="750">
 <br>
+<br>
+<h2>Contact</h2>
+
+If you have any concerns, feedbacks, or suggestions, please feel free to contact me! <br>
+<a href="mailto:bunnieabc@gmail.com"">bunnieabc@gmail.com</a>
