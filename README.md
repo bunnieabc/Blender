@@ -34,6 +34,6 @@ You can copied the original shape. Change the copied shape's Fill, Border, Opaci
 1. Create blending color blocks <br>
 <img src="https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex1.gif" alt="">
 <br>
-2. Multiple color Blocks
+2. Multiple color Blocks <br>
 <img src="https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex2-1.gif" alt="">
 <br>
