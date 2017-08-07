@@ -74,4 +74,4 @@ If you want to create a guideline for Headers, it could be useful. You can blend
 <h2>Contact</h2>
 
 If you have any concerns, feedbacks, or suggestions, please feel free to contact me! <br>
-<a href="mailto:bunnieabc@gmail.com"">bunnieabc@gmail.com</a>
+<a href="mailto:bunnieabc@gmail.com"> bunnieabc@gmail.com </a>
