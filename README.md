@@ -30,8 +30,10 @@ You can copied the original shape. Change the copied shape's Fill, Border, Opaci
 <br><br>
 ## Examples
 ### Basic
-1. Create blending color blocks 
-![Alt Text](https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex1.gif)
-  
-2. Irregular shapes' example:  
-![Alt Text](https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex3.gif)
+
+1. Create blending color blocks <br>
+<img src="https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex1.gif" alt="">
+<br>
+2. Multiple color Blocks
+<img src="https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex2-1.gif" alt="">
+<br>
