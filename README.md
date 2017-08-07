@@ -9,7 +9,7 @@ A Blend tool for Sketch App.
 </p>
 
 ## Introduction  
-You can blend objects to create and distribute shapes evenly between multiple shapes in Sketch through this plugin.
+Through this Plugin, you can blend objects to create and distribute shapes evenly between multiple objects in Sketch.
 
 **Notice: you should use SAME SHAPES to do the blend trick.**
 
