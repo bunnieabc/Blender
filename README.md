@@ -12,7 +12,7 @@ A Blend tool for Sketch App.
 Through this Plugin, you can blend objects to create and distribute shapes evenly between multiple objects in Sketch.
 
 *Notice: you should use SAME SHAPES to do the blend trick.*
-<br><br><br>
+<br><br>
 ### Rectengles 
 You can try to blend their Radius, Fill, Border, Opacity, Rotate, Size, Position
   
@@ -21,14 +21,13 @@ Same as Rectangles, but can not blend their Radius.
   
 ### Vectors (irregular shape):  
 You can copied the original shape. Change the copied shape's Fill, Border, Opacity, Rotate, Size or Position. Then apply the blend tool on them.
-
+<br><br>
 ## Usage  
 1. Select shapes(more than 2) that you want to blend.<br>
 2. Then you will see a input box. Type the number of steps you want between those shapes.<br>
 3. Then you get it!<br>
 
-<br><br><br>
-
+<br><br>
 ## Examples
 ### Basic
 1. Create blending color blocks 
