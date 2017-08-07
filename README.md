@@ -1,6 +1,7 @@
 # BLENDER
  
 A Blend tool for Sketch App.
+
  
 <p align="center">
   <img src = "https://github.com/bunnieabc/Blender/blob/master/doc/logo.png"/>
@@ -23,13 +24,14 @@ Same as Rectangles, but can not blend their Radius.
 You should copied the original shape. Change the copied shape's Fill, Border, Opacity, Rotate, Size or Position. Then apply the blend tool on them.
 <br>
 ### Texts (irregular shape):  
-If you want to create a uideline for Headers, it could be useful. You can blend their Font size, Position, Character Spacing, Line Height and Text Color.
+If you want to create a guideline for Headers, it could be useful. You can blend their Font size, Position, Character Spacing, Line Height and Text Color.
 
 <br><br>
 ## Usage  
-1. Select shapes(more than 2) that you want to blend.<br>
-2. Then you will see a input box. Type the number of steps you want between those shapes.<br>
-3. Then you get it!<br>
+1. Create shapes and put them in the right order since it will start from the bottom of the selected layers.<br>
+2. Select shapes(more than 2) that you want to blend.<br>
+3. Then you will see a input box. Type the number of steps you want between those shapes.<br>
+4. Then you get it!<br>
 
 <br><br>
 ## Examples
@@ -48,4 +50,8 @@ If you want to create a uideline for Headers, it could be useful. You can blend 
 
 4. Create a colorful alphabet! <br>
 <img src="https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex2.gif" alt="">
+<br>
+
+4. Quickly create headers' guideline. <br>
+<img src="https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex5.gif" alt="">
 <br>

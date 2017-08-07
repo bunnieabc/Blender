@@ -181,7 +181,6 @@ else {
         var ba = Math.round(getNum(selected_border_color[id].alpha(), selected_border_color[id+1].alpha(), i, parseInt(result)+2 ) * 255)
       
         var border = layer.style().borders().firstObject();
-        log(border)
         border.color = MSColor.colorWithRed_green_blue_alpha( br / 255, bg / 255, bb / 255, ba / 255);
 
         var shape = selectedLayers[id].layers().firstObject();
