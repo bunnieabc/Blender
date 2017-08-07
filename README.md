@@ -4,7 +4,7 @@
   <img src = "https://github.com/bunnieabc/Blender/blob/master/doc/logo.png?raw=true" width="150" height="186"/>
 </p>
 
-## Instruction  
+## Introduction  
 You can blend objects to create and distribute shapes evenly between multiple shapes in Sketch through this plugin.
 
 Notice: you should use **SAME SHAPES** to do the blend trick.  
