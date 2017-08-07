@@ -32,7 +32,7 @@ Same as Rectangles, but can not blend their Radius.
 ### Vectors (irregular shape):  
 You should copied the original shape. Change the copied shape's Fill, Border, Opacity, Rotate, Size or Position. Then apply the blend tool on them.
 <br>
-### Texts (irregular shape):  
+### Texts
 If you want to create a guideline for Headers, it could be useful. You can blend their Font size, Position, Character Spacing, Line Height and Text Color.
 
 <br><br>
