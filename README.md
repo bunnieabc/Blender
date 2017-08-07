@@ -27,7 +27,7 @@ You can copied the original shape. Change the copied shape's Fill, Border, Opaci
 2. Then you will see a input box. Type the number of steps you want between those shapes.<br>
 3. Then you get it!<br>
 
-
+<br><br><br>
 ### Examples
 
 1. Create blending colors  
