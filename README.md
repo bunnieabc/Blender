@@ -62,6 +62,6 @@ If you want to create a guideline for Headers, it could be useful. You can blend
 <img src="https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex2.gif" alt="">
 <br>
 
-4. Quickly create headers' guideline. <br>
+5. Quickly create headers' guideline. <br>
 <img src="https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex5.gif" alt="">
 <br>
