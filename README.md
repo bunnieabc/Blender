@@ -28,9 +28,10 @@ You can copied the original shape. Change the copied shape's Fill, Border, Opaci
 3. Then you get it!<br>
 
 <br><br><br>
-### Examples
 
-1. Create blending colors  
+## Examples
+### Basic
+1. Create blending color blocks 
 ![Alt Text](https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex1.gif)
   
 2. Irregular shapes' example:  
