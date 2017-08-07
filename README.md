@@ -40,7 +40,8 @@ If you want to create a guideline for Headers, it could be useful. You can blend
 1. Create blending color blocks <br>
 <img src="https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex1.gif" alt="">
 <br>
-2. Multiple color Blocks <br>
+
+2. Multiple color blocks <br>
 <img src="https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex2-1.gif" alt="">
 <br>
 
