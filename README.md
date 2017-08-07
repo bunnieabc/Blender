@@ -15,12 +15,16 @@ Through this Plugin, you can blend objects to create and distribute shapes evenl
 <br><br>
 ### Rectengles 
 You can try to blend their Radius, Fill, Border, Opacity, Rotate, Size, Position
-  
+<br>
 ### Other shapes  
 Same as Rectangles, but can not blend their Radius.
-  
+<br>
 ### Vectors (irregular shape):  
-You can copied the original shape. Change the copied shape's Fill, Border, Opacity, Rotate, Size or Position. Then apply the blend tool on them.
+You should copied the original shape. Change the copied shape's Fill, Border, Opacity, Rotate, Size or Position. Then apply the blend tool on them.
+<br>
+### Texts (irregular shape):  
+If you want to create a uideline for Headers, it could be useful. You can blend their font size, position, character spacing, line height and so on.
+
 <br><br>
 ## Usage  
 1. Select shapes(more than 2) that you want to blend.<br>
