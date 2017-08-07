@@ -9,6 +9,12 @@ A Blend tool for Sketch App.
   <img src = "https://github.com/bunnieabc/Blender/blob/master/doc/blender-logo.gif"/>
 </p>
 
+## Installation
+1. Download through this link: <a href="https://github.com/bunnieabc/Blender/raw/master/download/Blender.zip">**Download Blender!**</a> <br>
+2. Double click to install it.<br>
+3. Then you can find it in "Plugins" in Sketch.<br>
+<br><br>
+
 ## Introduction  
 Through this Plugin, you can blend objects to create and distribute shapes evenly between multiple objects in Sketch.
 
