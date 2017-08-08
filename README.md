@@ -51,19 +51,23 @@ If you want to create a guideline for Headers, it could be useful. You can blend
 <img src="https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex1.gif" alt="">
 <br>
 
-2. Multiple color blocks <br>
+2. Quickly blend shapes(for rectangles)<br>
+<img src="https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex6.gif" alt="">
+<br>
+
+3. Multiple color blocks <br>
 <img src="https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex2-1.gif" alt="">
 <br>
 
-3. Irregular Lines <br>
+4. Irregular Lines <br>
 <img src="https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex3.gif" alt="">
 <br>
 
-4. Create a colorful alphabet! <br>
+5. Create a colorful alphabet! <br>
 <img src="https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex2.gif" alt="">
 <br>
 
-5. Quickly create headers' guideline. <br>
+6. Quickly create headers' guideline. <br>
 <img src="https://github.com/bunnieabc/Blender/blob/master/doc/blender-ex5.gif" alt="">
 <br>
 
