@@ -16,7 +16,8 @@
       "com.bohemiancoding.sketch.runscriptidentifier"
     ]
   },
-  "identifier" : "com.example.sketch.9145fb98-a26d-4f25-9091-8fc4906ad315",
+  "identifier" : "com.bunnieabc.blender",
+  "appcast": "https://api.sketchpacks.com/v1/plugins/com.bunnieabc.blender/appcast",
   "version" : "1.0",
   "description" : "Blend tool for sketch",
   "authorEmail" : "bunnieabc@gmail.com",
