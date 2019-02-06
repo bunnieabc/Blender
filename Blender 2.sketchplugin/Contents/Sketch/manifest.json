@@ -16,9 +16,16 @@
       "com.bohemiancoding.sketch.runscriptidentifier"
     ]
   },
+<<<<<<< HEAD:Blender 2.sketchplugin/Contents/Sketch/manifest.json
   "identifier" : "com.example.sketch.9145fb98-a26d-4f25-9091-8fc4906ad315",
   "version" : "1.2",
   "description" : "Create intermediate shapes between specific objects",
+=======
+  "identifier" : "com.bunnieabc.blender",
+  "appcast": "https://api.sketchpacks.com/v1/plugins/com.bunnieabc.blender/appcast",
+  "version" : "1.0",
+  "description" : "Blend tool for sketch",
+>>>>>>> 37079f02cd367c21053ffec677c43e87f78e0bdb:Blender.sketchplugin/Contents/Sketch/manifest.json
   "authorEmail" : "bunnieabc@gmail.com",
   "name" : "Blender"
 }
