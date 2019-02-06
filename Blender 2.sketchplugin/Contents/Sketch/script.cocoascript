@@ -1,4 +1,4 @@
-          var onRun = function(context) {
+var onRun = function(context) {
           
 var selectedLayers = context.selection;
 var selectedCount = selectedLayers.count();
@@ -96,9 +96,9 @@ else {
       // for borders
       selected_border_color[id] = getColor("border", selectedLayers[id])
 
-      var shape = selectedLayers[id].layers().firstObject();
+      var shape = selectedLayers[id];
       if(shape && shape.isKindOfClass(MSRectangleShape)){
-        selected_radius[id] = selectedLayers[id].layers().firstObject().cornerRadiusFloat();
+        selected_radius[id] = selectedLayers[id].cornerRadiusFloat();
       }
     }
     
@@ -184,10 +184,10 @@ else {
         var border = layer.style().borders().firstObject();
         border.color = MSColor.colorWithRed_green_blue_alpha( br / 255, bg / 255, bb / 255, ba / 255);
 
-        var shape = selectedLayers[id].layers().firstObject();
+        var shape = selectedLayers[id];
         fill.color = MSColor.colorWithRed_green_blue_alpha( r / 255, g / 255, b / 255, a / 255);
         if(shape && shape.isKindOfClass(MSRectangleShape)){
-          layer.layers().firstObject().cornerRadiusFloat = Math.round(getNum(parseInt(selected_radius[id]), parseInt(selected_radius[id+1]), i, parseInt(result)+2 ))
+          layer.cornerRadiusFloat = Math.round(getNum(parseInt(selected_radius[id]), parseInt(selected_radius[id+1]), i, parseInt(result)+2 ))
         }
       }
 

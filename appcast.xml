@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Blender Plugin</title>
+    <link>http://sparkle-project.org/files/sparkletestcast.xml</link>
+    <description>Create intermediate shapes between specific objects</description>
+    <language>en</language>
+    <item>
+      <title>Version 1.2</title>
+      <description>
+        <![CDATA[
+            <ul>
+              <li>Fixed the bugs after Sketch version 51</li>
+            </ul>
+          ]]>
+      </description>
+      <enclosure url="https://github.com/bunnieabc/Blender/raw/master/download/Blender.zip" sparkle:version="1.2"/>
+    </item>
+  </channel>
+</rss>

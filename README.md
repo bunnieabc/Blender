@@ -1,6 +1,6 @@
 # BLENDER
  
-
+## Feb 6th 2019: Recently fixed the issue and you can successfully use it now :).
 
  
 <p align="center">

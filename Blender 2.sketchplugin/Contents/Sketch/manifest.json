@@ -1,5 +1,5 @@
 {
-  "author" : "Yu Hsuan Lin",
+  "author" : "Yu-Hsuan Lin",
   "commands" : [
     {
       "script" : "script.cocoascript",
@@ -17,8 +17,8 @@
     ]
   },
   "identifier" : "com.example.sketch.9145fb98-a26d-4f25-9091-8fc4906ad315",
-  "version" : "1.0",
-  "description" : "Blend tool for sketch",
+  "version" : "1.2",
+  "description" : "Create intermediate shapes between specific objects",
   "authorEmail" : "bunnieabc@gmail.com",
   "name" : "Blender"
 }
