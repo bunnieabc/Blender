@@ -178,7 +178,7 @@ else {
       }
       else {
         var fill = layer.style().fills().firstObject();
-        if( selected_border_color[id] !== undefined ) {
+        if (selected_border_color[id] instanceof MSColor) {
           var br = Math.round(getNum(selected_border_color[id].red(), selected_border_color[id+1].red(), i, parseInt(result)+2 ) * 255)
           var bg = Math.round(getNum(selected_border_color[id].green(), selected_border_color[id+1].green(), i, parseInt(result)+2 ) * 255)
           var bb = Math.round(getNum(selected_border_color[id].blue(), selected_border_color[id+1].blue(), i, parseInt(result)+2 ) * 255)
