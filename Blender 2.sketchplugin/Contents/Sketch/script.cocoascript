@@ -11,13 +11,17 @@ var getColor = function(selectionType, layer) {
     if (layer instanceof MSTextLayer) {
       color = layer.textColor()
     } else {
-      color = layer.style().fills().firstObject().color()
+      if(layer.style().fills().length !== 0) {
+        color = layer.style().fills().firstObject().color()
+      }
     }
   } else {
     if (layer instanceof MSTextLayer) {
       color = layer.style().borders().firstObject().color()
     } else {
-      color = layer.style().borders().firstObject().color()
+      if( layer.style().borders().firstObject() !== null ) {
+        color = layer.style().borders().firstObject().color()
+      }
     }
     
   }
@@ -176,13 +180,15 @@ else {
       }
       else {
         var fill = layer.style().fills().firstObject();
-        var br = Math.round(getNum(selected_border_color[id].red(), selected_border_color[id+1].red(), i, parseInt(result)+2 ) * 255)
-        var bg = Math.round(getNum(selected_border_color[id].green(), selected_border_color[id+1].green(), i, parseInt(result)+2 ) * 255)
-        var bb = Math.round(getNum(selected_border_color[id].blue(), selected_border_color[id+1].blue(), i, parseInt(result)+2 ) * 255)
-        var ba = Math.round(getNum(selected_border_color[id].alpha(), selected_border_color[id+1].alpha(), i, parseInt(result)+2 ) * 255)
-      
-        var border = layer.style().borders().firstObject();
-        border.color = MSColor.colorWithRed_green_blue_alpha( br / 255, bg / 255, bb / 255, ba / 255);
+        if (selected_border_color[id] instanceof MSColor) {
+          var br = Math.round(getNum(selected_border_color[id].red(), selected_border_color[id+1].red(), i, parseInt(result)+2 ) * 255)
+          var bg = Math.round(getNum(selected_border_color[id].green(), selected_border_color[id+1].green(), i, parseInt(result)+2 ) * 255)
+          var bb = Math.round(getNum(selected_border_color[id].blue(), selected_border_color[id+1].blue(), i, parseInt(result)+2 ) * 255)
+          var ba = Math.round(getNum(selected_border_color[id].alpha(), selected_border_color[id+1].alpha(), i, parseInt(result)+2 ) * 255)
+        
+          var border = layer.style().borders().firstObject();
+          border.color = MSColor.colorWithRed_green_blue_alpha( br / 255, bg / 255, bb / 255, ba / 255);
+        }
 
         var shape = selectedLayers[id];
         fill.color = MSColor.colorWithRed_green_blue_alpha( r / 255, g / 255, b / 255, a / 255);
