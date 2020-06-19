@@ -11,7 +11,9 @@ var getColor = function(selectionType, layer) {
     if (layer instanceof MSTextLayer) {
       color = layer.textColor()
     } else {
-      color = layer.style().fills().firstObject().color()
+      if(layer.style().fills().length !== 0) {
+        color = layer.style().fills().firstObject().color()
+      }
     }
   } else {
     if (layer instanceof MSTextLayer) {
